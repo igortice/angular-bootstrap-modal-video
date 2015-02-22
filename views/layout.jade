@@ -1,10 +1,9 @@
 doctype html
-html(ng-app='')
+html(ng-app='moduleMain')
   head
     title= title
     link(rel='stylesheet', href='/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/css/bootstrap-theme.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/style.css')
   body
     nav.navbar.navbar-default.navbar-fixed-top
       .container
@@ -14,41 +13,26 @@ html(ng-app='')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='#') Project name
+          a.navbar-brand(href='#') Angular Bootstrap Modal Video
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li.active
               a(href='#') Home
             li
-              a(href='#about') About
+              a(href='#about') Examples
             li
               a(href='#contact') Contact
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                | Dropdown
-                span.caret
-              ul.dropdown-menu(role='menu')
-                li
-                  a(href='#') Action
-                li
-                  a(href='#') Another action
-                li
-                  a(href='#') Something else here
-                li.divider
-                li.dropdown-header Nav header
-                li
-                  a(href='#') Separated link
-                li
-                  a(href='#') One more separated link
 
     .container
       block content
 
     footer.footer
       .container
-        p.text-muted Place sticky footer content here.
+        p.text-muted By Igor Rocha
 
 
     script(type='text/javascript' src='/js/jquery.min.js')
     script(type='text/javascript' src='/js/bootstrap.min.js')
     script(type='text/javascript' src='/js/angular.min.js')
+    script(type='text/javascript' src='/js/app.js')
+    script(type='text/javascript' src='/js/directives/modal_video.js')

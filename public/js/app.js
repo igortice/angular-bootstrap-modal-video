@@ -1,0 +1,1 @@
+var moduleMain = angular.module('moduleMain', []);
