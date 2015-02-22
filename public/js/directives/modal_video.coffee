@@ -155,97 +155,97 @@ templateModalVideo = (elem, attr) ->
 
   if attr.srcOgg
     source_ogg = """
-        <source src="#{attr.srcOgg}" type="video/ogg">
+        <source src='#{attr.srcOgg}' type='video/ogg'>
       """
   if attr.srcMp4
     source_mp4 = """
-        <source src="#{attr.srcMp4}" type="video/mp4">
+        <source src='#{attr.srcMp4}' type='video/mp4'>
       """
 
   btn_modal_video = """
-    <button class="btn btn-primary btn-link" ng-click="getModalVideo()">
-      <i class="glyphicon glyphicon-facetime-video"></i>
+    <button class='btn btn-primary btn-link' ng-click='getModalVideo()'>
+      <i class='glyphicon glyphicon-facetime-video'></i>
       Watch Video
     </button>
   """
 
   if elem.html()
     btn_modal_video = """
-        <div ng-click="getModalVideo()">
-        #{elem.html()}
+        <div ng-click='getModalVideo()'>
+          #{elem.html()}
         </div>
       """
 
   html = """
       #{btn_modal_video}
-      <div class="modal fade">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div ng-hide="errorVideo">
-                <div ng-mouseleave="showPlayPauseOverVideo=false" ng-mouseover="showPlayPauseOverVideo=true">
-                  <video width="100%">
+      <div class='modal fade'>
+        <div class='modal-dialog modal-lg'>
+          <div class='modal-content'>
+            <div class='modal-body'>
+              <div ng-hide='errorVideo'>
+                <div class='container-video' ng-mouseleave='showPlayPauseOverVideo=false' ng-mouseover='showPlayPauseOverVideo=true'>
+                  <video width='100%'>
                     #{source_ogg}
                     #{source_mp4}
                   </video>
-                  <div class="play-pause" ng-show="showPlayPauseOverVideo">
-                    <div ng-show="play" >
-                      <i class='glyphicon glyphicon-play' ng-click="video('play')" title="#{title_play}"></i>
+                  <div class='play-pause' ng-show='showPlayPauseOverVideo'>
+                    <div ng-show='play' ng-click='video("play")'>
+                      <i class='glyphicon glyphicon-play' title='#{title_play}'></i>
                     </div>
-                    <div ng-show="pause" >
-                      <i class='glyphicon glyphicon-pause' ng-click="video('pause')" title="#{title_pause}"></i>
+                    <div ng-show='pause' ng-click='video("pause")'>
+                      <i class='glyphicon glyphicon-pause' title='#{title_pause}'></i>
                     </div>
                   </div>
                 </div>
                 <div class='container-progress'>
-                  <div ng-click="updateBarProgress($event)" class="progress-update"></div>
-                  <div class="progress">
-                    <div class="progress-bar active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{progressBar()}}%">
+                  <div ng-click='updateBarProgress($event)' class='progress-update'></div>
+                  <div class='progress'>
+                    <div class='progress-bar active' role='progressbar' aria-valuenow='45' aria-valuemin='0' aria-valuemax='100' style='width: {{progressBar()}}%'>
                       {{progressBar()}}%
                     </div>
                   </div>
                 </div>
-                <div class="btn-group btn-group-justified">
-                  <div class="btn-group ng-hide" ng-show="pause">
-                    <button class="btn btn-default" ng-click="video('pause')" title="#{title_pause}" type="radio">
-                      <i class="glyphicon glyphicon-pause"></i>
+                <div class='btn-group btn-group-justified'>
+                  <div class='btn-group ng-hide' ng-show='pause'>
+                    <button class='btn btn-default' ng-click='video("pause")' title='#{title_pause}' type='radio'>
+                      <i class='glyphicon glyphicon-pause'></i>
                     </button>
                   </div>
-                  <div class="btn-group" ng-show="play">
-                    <button class="btn btn-default" ng-click="video('play')" title="#{title_play}" type="radio">
-                      <i class="glyphicon glyphicon-play"></i>
+                  <div class='btn-group' ng-show='play'>
+                    <button class='btn btn-default' ng-click='video("play")' title='#{title_play}' type='radio'>
+                      <i class='glyphicon glyphicon-play'></i>
                     </button>
                   </div>
-                  <div class="btn-group" ng-show="finish">
-                    <button class="btn btn-default" ng-click="video('repeat')" title="#{title_play_repeat}" type="radio">
-                      <i class="glyphicon glyphicon-repeat"></i>
+                  <div class='btn-group' ng-show='finish'>
+                    <button class='btn btn-default' ng-click='video("repeat")' title='#{title_play_repeat}' type='radio'>
+                      <i class='glyphicon glyphicon-repeat'></i>
                     </button>
                   </div>
-                  <div class="btn-group">
-                    <button class="btn btn-default ng-binding" title="#{title_time}">
+                  <div class='btn-group'>
+                    <button class='btn btn-default ng-binding' title='#{title_time}'>
                       {{videoCurrentDuration}}/{{videoDuration}}
                     </button>
                   </div>
-                  <div class="btn-group">
-                    <button class="btn btn-default" ng-click="video('eject')" title="#{title_exit}" type="radio">
-                      <i class="glyphicon glyphicon-eject"></i>
+                  <div class='btn-group'>
+                    <button class='btn btn-default' ng-click='video("eject")' title='#{title_exit}' type='radio'>
+                      <i class='glyphicon glyphicon-eject'></i>
                     </button>
                   </div>
-                  <div class="btn-group" ng-hide="full">
-                    <button class="btn btn-default" ng-click="video('full-size');" ng-hide="full" title="#{title_full_size}" type="radio">
-                      <i class="glyphicon glyphicon-resize-full"></i>
+                  <div class='btn-group' ng-hide='full'>
+                    <button class='btn btn-default' ng-click='video("full-size")' ng-hide='full' title='#{title_full_size}' type='radio'>
+                      <i class='glyphicon glyphicon-resize-full'></i>
                     </button>
                   </div>
-                  <div class="btn-group ng-hide" ng-show="full">
-                    <button class="btn btn-default ng-hide" ng-click="video('normal-size')" ng-show="full" title="#{title_normal_size}" type="radio">
-                      <i class="glyphicon glyphicon-resize-small"></i>
+                  <div class='btn-group ng-hide' ng-show='full'>
+                    <button class='btn btn-default ng-hide' ng-click='video("normal-size")' ng-show='full' title='#{title_normal_size}' type='radio'>
+                      <i class='glyphicon glyphicon-resize-small'></i>
                     </button>
                   </div>
                 </div>
               </div>
-              <div ng-show="errorVideo">
-                <h1 class='text-center text-muted' style="font-size: 20em">
-                  <i class="glyphicon glyphicon-facetime-video"></i>
+              <div ng-show='errorVideo'>
+                <h1 class='text-center text-muted' style='font-size: 20em'>
+                  <i class='glyphicon glyphicon-facetime-video'></i>
                 </h1>
               </div>
             </div>
@@ -255,8 +255,11 @@ templateModalVideo = (elem, attr) ->
     """
   css = """
       <style type="text/css">
+        modal-video .container-video {
+          position: relative;
+        }
         modal-video .full-size .modal-lg {
-            width : #{full_size_with};
+          width : #{full_size_with};
         }
         modal-video .container-progress {
           position: relative;
@@ -287,19 +290,26 @@ templateModalVideo = (elem, attr) ->
           padding: 1px;
         }
         modal-video .play-pause {
-          position: absolute;
           width: 100%;
-          text-align: center;
+          height: 100%;
           cursor: pointer;
-          top: 0;
           color: #ffffff;
         }
         modal-video .play-pause > div {
-          margin-top: 15%;
+          height: 100%;
           font-size: 10em;
+          width: 100%;
+          position: absolute;
+          text-align: center;
+          top: 0;
+        }
+        modal-video .play-pause > div i {
+          top: 33% ;
+          height: auto;
+          opacity: 0.5;
         }
         modal-video .full-size .play-pause > div {
-          margin-top: 18%;
+          height: 100%;
           font-size: 15em;
         }
       </style>
