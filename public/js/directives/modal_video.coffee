@@ -309,8 +309,7 @@ templateModalVideo = (elem, attr) ->
           opacity: 0.5;
         }
         modal-video .full-size .play-pause > div {
-          height: 100%;
-          font-size: 15em;
+          font-size: #{10 + (6 + full_size_with.slice(0,-1)) / 100}em;
         }
       </style>
     """
